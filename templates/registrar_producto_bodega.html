@@ -10,8 +10,13 @@
   <form method="POST" action="{{ url_for('main.agregar_producto_bodega') }}">
     <label for="id_producto">id producto:</label><br>
     <input type="text" id="id_producto" name="id_producto" type="number" required><br>
-    <label for="id_bodega">id bodega:</label><br>
-    <input type="text" id="id_bodega" name="id_bodega" type="number" required><br>
+    <label for="opciones">id bodega:</label><br>
+    <select name="opciones" id="opciones">
+      <option value="" selected>Seleccionar</option>
+      {% for opcion in opciones %}
+        <option value="{{opcion.id_bodega}}">{{opcion.id_bodega}} - {{opcion.nombre}}</option>
+      {% endfor %}
+    </select><br>
     <label for="cantidad">cantidad:</label><br>
     <input type="text" id="cantidad" name="cantidad" type="number" required><br>
     <input type="submit" value="Registrar">

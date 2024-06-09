@@ -469,3 +469,34 @@ class GestionBD:
             print("Base de datos eliminada con éxito.")
         else:
             print("La base de datos no existe.")
+
+    def obtener_ids_categorias(self):
+        conexion = sqlite3.connect(self.direccion_bd)
+        conexion.row_factory = sqlite3.Row
+        cursor = conexion.cursor()
+
+        cursor.execute("SELECT id_categoria, nombre FROM Categoria;")
+        categorias = [dict(categoria) for categoria in cursor.fetchall()]
+
+        return categorias
+
+    def obtener_ids_bodegas(self):
+            conexion = sqlite3.connect(self.direccion_bd)
+            conexion.row_factory = sqlite3.Row
+            cursor = conexion.cursor()
+
+            cursor.execute("SELECT id_bodega, nombre FROM Bodega;")
+            bodegas = [dict(bodega) for bodega in cursor.fetchall()]
+
+            return bodegas
+
+    def obtener_ids_proveedor(self):
+            conexion = sqlite3.connect(self.direccion_bd)
+            conexion.row_factory = sqlite3.Row
+            cursor = conexion.cursor()
+
+            cursor.execute("SELECT id_proveedor, nombre FROM Proveedor;")
+            proveedores = [dict(proveedor) for proveedor in cursor.fetchall()]
+
+            return proveedores
+

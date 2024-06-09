@@ -14,7 +14,12 @@
     <label for="stock">Stock Inicial:</label><br>
     <input type="number" id="stock" name="stock" required><br>
     <label for="id_categoria">ID Categoría:</label><br>
-    <input type="number" id="id_categoria" name="id_categoria" required><br>
+    <select name="opciones" id="opciones">
+        <option value="" selected>Seleccionar</option>
+        {% for opcion in opciones %}
+          <option value="{{opcion.id_categoria}}">{{opcion.id_categoria}} - {{opcion.nombre}}</option>
+        {% endfor %}
+    </select><br>
     <input type="submit" value="Registrar">
 </form>
 {% endblock %}

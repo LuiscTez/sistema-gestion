@@ -77,18 +77,19 @@ def bodega(id):
 @main.route('/registrar_producto', methods=['GET', 'POST'])
 def registrar_producto():
     bd = g.get("bd")
+    categorias = bd.obtener_ids_categorias()
 
     if request.method == 'POST':
         nombre = request.form['nombre']
         descripcion = request.form['descripcion']
         precio = float(request.form['precio'])
         stock = int(request.form['stock'])
-        id_categoria = int(request.form['id_categoria'])
+        id_categoria = int(request.form.get("opciones"))
 
         prod = Producto(nombre, descripcion, precio, stock, id_categoria)
         bd.registrar_producto(prod.nombre, prod.descripcion, prod.precio, prod.stock, prod.id_categoria)
         return redirect('/')
-    return render_template('registrar_producto.html')
+    return render_template('registrar_producto.html', opciones=categorias)
 
 @main.route('/registrar_categoria', methods=['GET', 'POST'])
 def registrar_categoria():
@@ -206,43 +207,48 @@ def mostrar_bodega(id):
 @main.route("/agregar_producto_categoria", methods=['GET', 'POST'])
 def agregar_producto_categoria():
     db = g.get("bd")
+    categorias = db.obtener_ids_categorias()
 
     if request.method == "POST":
         id_producto = int(request.form["id_producto"])
-        id_categoria = int(request.form["id_categoria"])
+        id_categoria = int(request.form.get("opciones"))
 
         db.agregar_producto_a_categoria(id_producto, id_categoria)
 
-    return render_template("registrar_producto_categoria.html")
+    return render_template("registrar_producto_categoria.html", opciones=categorias)
 
 @main.route("/agregar_producto_proveedor", methods=['GET', 'POST'])
 def agregar_producto_proveedor():
     db = g.get("bd")
+    proveedores = db.obtener_ids_proveedor()
 
     if request.method == "POST":
         id_producto = int(request.form["id_producto"])
-        id_proveedor = int(request.form["id_proveedor"])
+        id_proveedor = int(request.form.get("opciones"))
 
         prod_proveedor = ProductoProveedor(id_producto, id_proveedor)
 
         db.agregar_producto_a_proveedor(prod_proveedor.id_producto, prod_proveedor.id_proveedor)
 
-    return render_template("registrar_producto_proveedor.html")
+    return render_template("registrar_producto_proveedor.html", opciones = proveedores)
 
 @main.route("/agregar_producto_bodega", methods=['GET', 'POST'])
 def agregar_producto_bodega():
     db = g.get("bd")
+    bodegas = db.obtener_ids_bodegas()
 
     if request.method == "POST":
         id_producto = int(request.form["id_producto"])
-        id_bodega = int(request.form["id_bodega"])
+        id_bodega = int(request.form.get("opciones"))
         cantidad = int(request.form["cantidad"])
 
         prod_bodega = ProductoBodega(id_bodega, id_producto, cantidad)
 
-        db.agregar_producto_a_bodega(prod_bodega.id_producto, prod_bodega.id_bodega, prod_bodega.cantidad)
+        print(id_bodega, "id")
 
-    return render_template("registrar_producto_bodega.html")
+        #db.agregar_producto_a_bodega(prod_bodega.id_producto, prod_bodega.id_bodega, prod_bodega.cantidad)
+
+    return render_template("registrar_producto_bodega.html", opciones = bodegas)
 
 @main.route("/eliminar_producto_categoria/<int:id>")
 def eliminar_producto_categoria(id):
@@ -259,6 +265,13 @@ def eliminar_producto_proveedor(id_proveedor, id_producto):
     db.eliminar_producto_de_proveedor(id_producto, id_proveedor)
 
     return redirect("/consultar_proveedor")
+
+@main.route("/test")
+def test():
+    bd = g.get("bd")
+    categorias = bd.obtener_ids_categorias()
+
+    return categorias
 
 
 
