@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar nuevo producto a proveedor</title>
+</head>
+<body>
+  <h1>Registrar productos a proveedor</h1>
+  <form method="POST" action="{{ url_for('main.agregar_producto_proveedor') }}">
+    <label for="id_producto">id producto:</label><br>
+    <input type="text" id="id_producto" name="id_producto" type="number" required><br>
+    <label for="id_proveedor">id proveedor:</label><br>
+    <input type="text" id="id_proveedor" name="id_proveedor" type="number" required><br>
+    <input type="submit" value="Registrar">
+    <a href="/">Volver</a>
+  </form>
+</body>
+</html>

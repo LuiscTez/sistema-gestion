@@ -1,0 +1,30 @@
+<h2>Detalles del Proveedor</h2>
+<p><strong>Nombre:</strong> {{ proveedor['nombre'] }}</p>
+<p><strong>Dirección:</strong> {{ proveedor['direccion'] }}</p>
+<p><strong>Teléfono:</strong> {{ proveedor['telefono'] }}</p>
+<h3>Productos suministrados por este Proveedor:</h3>
+<table border="1">
+    <thead>
+        <th>id</th>
+        <th>nombre</th>
+        <th>descripcion</th>
+        <th>precio</th>
+        <th>stock</th>
+        <th>id_categoria</th>
+        <th>accion</th>
+    </thead>
+    <tbody>
+        {% for producto in proveedor["productos"] %}
+        <tr>
+            <td>{{producto.id_producto}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.descripcion}}</td>
+            <td>{{producto.precio}}</td>
+            <td>{{producto.stock}}</td>
+            <td>{{producto.id_categoria}}</td>
+            <td><a href="/eliminar_producto_proveedor/{{producto.id_producto}}/{{proveedor["id"]}}">eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/consultar_proveedor">Volver</a>

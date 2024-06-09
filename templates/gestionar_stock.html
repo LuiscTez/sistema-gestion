@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Gestionar Stock{% endblock %}
+
+{% block content %}
+<h2>Gestionar Stock</h2>
+<form method="POST">
+    <label for="operacion">Operación:</label><br>
+    <select id="operacion" name="operacion">
+        <option value="agregar">Agregar Stock</option>
+        <option value="retirar">Retirar Stock</option>
+    </select><br>
+    <label for="id_producto">ID Producto:</label><br>
+    <input type="number" id="id_producto" name="id_producto" required><br>
+    <label for="cantidad">Cantidad:</label><br>
+    <input type="number" id="cantidad" name="cantidad" required><br>
+    <input type="submit" value="Gestionar">
+</form>
+{% endblock %}

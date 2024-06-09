@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Categorias</title>
+</head>
+
+<body>
+  <h2>Consulta de categorias</h2>
+  <table border="1">
+    <thead>
+      <th>id</th>
+      <th>nombre</th>
+      <th>descripcion</th>
+      <th>productos asociados</th>
+    </thead>
+    <tbody>
+      {% for categoria in categorias %}
+        <tr>
+          <td>{{categoria.id_categoria}}</td>
+          <td>{{categoria.nombre}}</td>
+          <td>{{categoria.descripcion}}</td>
+          <td><a href="/categoria/{{categoria.id_categoria}}">Consultar</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/">Volver</a>
+</body>
+
+</html>

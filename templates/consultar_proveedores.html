@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de proveedores</title>
+</head>
+
+<body>
+  <h2>Consulta de proveedores</h2>
+  <table border="1">
+    <thead>
+      <th>id</th>
+      <th>nombre</th>
+      <th>direccion</th>
+      <th>telefono</th>
+      <th>productos suministrados</th>
+    </thead>
+    <tbody>
+      {% for proveedor in proveedores %}
+        <tr>
+          <td>{{proveedor.id_proveedor}}</td>
+          <td>{{proveedor.nombre}}</td>
+          <td>{{proveedor.direccion}}</td>
+          <td>{{proveedor.telefono}}</td>
+          <td><a href="/proveedor/{{proveedor.id_proveedor}}">Consultar</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/">Volver</a>
+</body>
+
+</html>

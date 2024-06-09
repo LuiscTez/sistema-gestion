@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Informe de Stock{% endblock %}
+
+{% block content %}
+<h2>Informe de Stock</h2>
+<h3>Stock Total: {{ stock_total }}</h3>
+
+<h3>Stock por Categoría</h3>
+<ul>
+    {% for categoria, stock in stock_por_categoria.items() %}
+    <li>{{ categoria }}: {{ stock }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Stock por Proveedor</h3>
+<ul>
+    {% for proveedor, stock in stock_por_proveedor.items() %}
+    <li>{{ proveedor }}: {{ stock }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Stock por Bodega</h3>
+<ul>
+    {% for bodega, stock in stock_por_bodega.items() %}
+    <li>{{ bodega }}: {{ stock }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Bodegas</title>
+</head>
+
+<body>
+  <h2>Consulta de bodegas</h2>
+  <table border="1">
+    <thead>
+      <th>id</th>
+      <th>nombre</th>
+      <th>ubicacion</th>
+      <th>capacidad</th>
+      <th>productos suministrados</th>
+    </thead>
+    <tbody>
+      {% for bodega in bodegas %}
+        <tr>
+          <td>{{bodega.id_bodega}}</td>
+          <td>{{bodega.nombre}}</td>
+          <td>{{bodega.ubicacion}}</td>
+          <td>{{bodega.capacidad}}</td>
+          <td><a href="/bodega/{{bodega.id_bodega}}">Consultar</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/">Volver</a>
+</body>
+
+</html>

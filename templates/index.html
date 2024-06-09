@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Sistema de Gestión de Inventario{% endblock %}
+
+{% block contenido %}
+<h1>Bienvenido al Sistema de Gestión de Inventario</h1>
+<ul>
+    <li><a href="/registrar_producto">Registrar Producto</a></li>
+    <li><a href="/registrar_categoria">Registrar Categoría</a></li>
+    <li><a href="/registrar_proveedor">Registrar Proveedor</a></li>
+    <li><a href="/registrar_bodega">Registrar Bodega</a></li>
+    <li><a href="/gestionar_stock">Gestionar Stock</a></li>
+    <li><a href="/consultar_info">Consultar Información</a></li>
+    <li><a href="/informe_stock">Generar Informe de Stock</a></li>
+</ul>
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Productos</title>
+</head>
+
+<body>
+  <h2>Consulta de productos</h2>
+  <table border="1">
+    <thead>
+      <th>id</th>
+      <th>nombre</th>
+      <th>descripcion</th>
+      <th>precio</th>
+      <th>stock</th>
+      <th>id_categoria</th>
+    </thead>
+    <tbody>
+      {% for producto in productos %}
+        <tr>
+          <td>{{producto.id_producto}}</td>
+          <td>{{producto.nombre}}</td>
+          <td>{{producto.descripcion}}</td>
+          <td>{{producto.precio}}</td>
+          <td>{{producto.stock}}</td>
+          <td>{{producto.id_categoria}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="/">Volver</a>
+</body>
+
+</html>

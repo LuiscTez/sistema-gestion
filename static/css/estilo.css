@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedan+SC&display=swap');
+html{
+  font-family: "Sedan SC", serif;
+  background: #bebafd;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
