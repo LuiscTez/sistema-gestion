@@ -36,7 +36,7 @@ Para obtener ayuda adicional sobre el uso de la aplicación, por favor consulta 
 
 - Nombre del Desarrollador Principal: Santiago Jiménez Castillo.
 - Nombre del Desarrollador Backend: Luis Carlos Tez
-
+- Nombre del Desarrollador Frontend: Camilo Ramirez
 ---
 
 ## Tecnologías Utilizadas
